@@ -1,0 +1,8 @@
+<h1><%= @plant.common_name %></h1>
+<p><%= @plant.scientific_name %></p>
+<p><%= @plant.description %></p>
+
+<nav>
+  <%= link_to 'Edit', edit_plant_path, class: 'btn btn-primary' %> 
+  <%= link_to 'Delete', plant_path(@plant), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %> 
+</nav>

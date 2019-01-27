@@ -1,0 +1,22 @@
+<%= form_for @plant do |f| %>
+
+  <p>
+    <%= f.label :common_name %> <br>
+    <%= f.text_field :common_name %>
+  </p>
+
+  <p>
+    <%= f.label :scientific_name %> <br>
+    <%= f.text_field :scientific_name %>
+  </p>
+
+  <p>
+    <%= f.label :description %> <br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

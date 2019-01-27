@@ -1,0 +1,10 @@
+<h1>Showing plants#index as root.</h1>
+
+<% @plants.each do |plant| %>
+  <p class="h3"> <%= link_to plant.common_name, plant_path(plant) %></p>
+  <p> <%= plant.scientific_name %></p>
+  <p> <%= plant.description %></p>
+<% end %>
+<div>
+  <nav> <%= link_to 'New', new_plant_path, class: 'btn btn-primary' %></nav>
+</div>

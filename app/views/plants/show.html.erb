@@ -3,6 +3,8 @@
 <p><%= @plant.description %></p>
 
 <nav>
+  <% if user_signed_in? %>
   <%= link_to 'Edit', edit_plant_path, class: 'btn btn-primary' %> 
   <%= link_to 'Delete', plant_path(@plant), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %> 
+  <% end %>
 </nav>

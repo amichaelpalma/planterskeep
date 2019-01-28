@@ -6,5 +6,7 @@
   <p> <%= plant.description %></p>
 <% end %>
 <div>
+  <% if user_signed_in? %>
   <nav> <%= link_to 'New', new_plant_path, class: 'btn btn-primary' %></nav>
+  <% end %>
 </div>

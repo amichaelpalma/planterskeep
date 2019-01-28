@@ -9,7 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container">
+    <%= render 'layouts/navbar' %>
+    <div id="flash" class="text-center">
+      <%= render 'layouts/flash' %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

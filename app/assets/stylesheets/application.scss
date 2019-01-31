@@ -12,8 +12,45 @@
  *
  */
 @import "bootstrap";
+
 #flash {
   padding-top: 1em;
   width: 70%;
   margin: 0 auto;
 }
+
+
+
+// Card Columns Breakpoints
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 1;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 3;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 75em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 3;
+        column-count: 4;
+    }
+}
+

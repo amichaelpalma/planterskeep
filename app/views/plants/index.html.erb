@@ -1,10 +1,33 @@
-<h1>Showing plants#index as root.</h1>
+  <div class="card-columns">
 
-<% @plants.each do |plant| %>
-  <p class="h3"> <%= link_to plant.common_name, plant_path(plant) %></p>
-  <p> <%= plant.scientific_name %></p>
-  <p> <%= plant.description %></p>
-<% end %>
+      <% @plants.each do |plant| %>
+      <div class="card">
+        <div class="card-header">
+          <span class="h4 card-title"> <%= link_to plant.common_name, plant_path(plant) %> </span> <br>
+        </div>
+
+        <div class="card-body">
+          <p>
+            <% if plant.image.attached? %>
+              <%= image_tag plant.image, class: "card-img-top img-fluid img-thumbnail", alt: "Plant Image" %>
+            <% else %>
+              <p class="image_placeholder text-center">Image</p>
+            <% end %>
+            <span class="card-text"><i><%= plant.scientific_name %></i></span> <br>
+            <%= plant.description %>
+          </p>
+        </div>
+
+          <p>
+            <div class="text-center">Rating</div>
+          <% if current_user %>
+            <%= link_to 'Edit', edit_plant_path(plant), class: "btn btn-primary" %>
+          </p>
+          <% end %>
+      </div>
+      <% end %>
+  </div>
+
 <div>
   <% if user_signed_in? %>
   <nav> <%= link_to 'New', new_plant_path, class: 'btn btn-primary' %></nav>

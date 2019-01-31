@@ -2,6 +2,12 @@
 <p><%= @plant.scientific_name %></p>
 <p><%= @plant.description %></p>
 
+<% if @plant.image.attached? %>
+  <%= image_tag @plant.image %>
+  <% else %>
+  <div class="image_placeholder">Image</div>
+<% end %>
+
 <nav>
   <% if user_signed_in? %>
   <%= link_to 'Edit', edit_plant_path, class: 'btn btn-primary' %> 

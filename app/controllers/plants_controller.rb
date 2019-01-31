@@ -1,10 +1,10 @@
 class PlantsController < ApplicationController
 
   before_action :set_plant, only: [ :show, :edit, :update, :destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
-    @plants = Plant.all
+    @plants = Plant.with_attached_image
   end
 
   def new
@@ -46,7 +46,7 @@ class PlantsController < ApplicationController
   private
 
   def plant_params
-    params.require(:plant).permit(:common_name, :scientific_name, :description)
+    params.require(:plant).permit(:common_name, :scientific_name, :description, :image)
   end
 
   def set_plant

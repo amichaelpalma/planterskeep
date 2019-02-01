@@ -1,37 +1,43 @@
-<div class="container-fluid">  
-  <div class="card-columns">
-
+<div class="container-fluid">
+  <div class="container">
+    <div class="card-columns">
       <% @plants.each do |plant| %>
-      <div class="card">
-        <div class="card-header">
-          <span class="h4 card-title"> <%= link_to plant.common_name, plant_path(plant) %> </span> <br>
-        </div>
-
-        <div class="card-body">
-          <p>
-            <% if plant.image.attached? %>
-              <%= image_tag plant.image, class: "card-img-top img-fluid img-thumbnail", alt: "Plant Image" %>
-            <% else %>
-              <p class="image_placeholder text-center">Image</p>
-            <% end %>
-            <span class="card-text"><i><%= plant.scientific_name %></i></span> <br>
-            <%= plant.description %>
-          </p>
-        </div>
-
-          <p>
-            <div class="text-center">Rating</div>
-          <% if current_user %>
-            <%= link_to 'Edit', edit_plant_path(plant), class: "btn btn-primary" %>
-          </p>
-          <% end %>
-      </div>
-      <% end %>
-  </div>
+            <div class="card card-flip h-100">
+                <div class="card-front text-white bg-dark" style="min-height: 329px;">
+                    <div class="card-body">
+                      <% if plant.image.attached? %>
+                        <%= image_tag plant.image, class: "img-thumbnail img-fluid", style: "min-height: auto; min-width: auto"%>
+                      <% else %>
+                        <p class="image_placeholder text-center" style="height: 180px;">Image</p>
+                      <% end %>
+                        <h3 class="card-title">
+                          <%= plant.common_name %>
+                        </h3>
+                        <p class="card-text">
+                          <small><i>added @time_ago <br> by @belongs_to User</i></small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                          <i><%= plant.scientific_name %></i>
+                        </h3>
+                        <p class="card-text">
+                          <%= plant.description %>
+                        </p>
+                        <nav><%= link_to 'Edit', edit_plant_path(plant), class: "btn btn-success" %> <%= link_to 'Delete', plant_path(plant), method: :delete, data: { confirm: "Are you sure you want to delete this item?" }, class: 'btn btn-danger' %></nav>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 
   <div>
     <% if user_signed_in? %>
     <nav> <%= link_to 'New', new_plant_path, class: 'btn btn-primary' %></nav>
     <% end %>
   </div>
+
 </div>

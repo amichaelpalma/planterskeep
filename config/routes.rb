@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   # Plants
   resources 'plants'
+
+  # Users
+  resources 'users'
 end

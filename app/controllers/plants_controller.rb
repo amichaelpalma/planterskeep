@@ -13,6 +13,7 @@ class PlantsController < ApplicationController
 
   def create
     @plant = Plant.new(plant_params)
+    @plant.user_id = current_user.id
     if @plant.save
       flash[:success] = 'A new plant has been added to your inventory.'
       redirect_to root_path

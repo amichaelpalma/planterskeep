@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :plants
+  has_many :plants, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -21,7 +21,7 @@ class User < ApplicationRecord
     end
     conditions[:email].downcase! if conditions[:email]
     where(conditions.to_h).first
-    
+
     # when allowing distinct User records with, e.g., "username" and "UserName"...
     where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
   end

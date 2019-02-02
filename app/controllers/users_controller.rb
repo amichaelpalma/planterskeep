@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @plants = current_user.plants
+    @user = User.find(params[:id])
   end
 
 end

@@ -1,4 +1,32 @@
   <div class="container">
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-6 text-white" style="border: 2px solid white; background-color: black; height: 400px; margin-bottom: 20px;">
+    This area will be reserved for the avatar.</div>
+    <div class="col-6">
+      <div class="w-100 text-white text-center mb-5 py-1">
+        This area is reserved for badges.
+      </div>
+      <div class="w-100 text-white text-center mb-5">
+        <h1>@<%= @user.username %></h1>
+      </div>
+      <div class="w-100 text-white py-2">
+        <p>
+          Wishlist (can be a modal?):
+          <br> Plant Name One <button class="btn btn-warning btn-sm">Sell</button> <button class="btn btn-info btn-sm">Give</button>
+          <br>
+          <br> Plant Name Two <span class="btn btn-warning btn-sm">Sell</span> <span class="btn btn-info btn-sm">Give</span>
+        </p>
+      </div>
+      <div class="w-100 pt-5">
+        <nav class="btn btn-sm btn-primary align-self-end">Follow</nav>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="w-100">
     <div class="card-columns">
       <% @plants.each do |plant| %>
             <div class="card card-flip h-100">
@@ -13,7 +41,9 @@
                           <%= plant.common_name %>
                         </h3>
                         <p class="card-text">
-                          <small><i>added @time_ago <br> by @belongs_to User <%= plant.user.email %></i></small>
+                          <small><i>added @time_ago <br> rating: 
+                            <!-- Rating placeholder -->
+                            <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star text-white"></i> </i></small>
                         </p>
                     </div>
                 </div>
@@ -36,4 +66,5 @@
             </div>
         <% end %>
     </div>
+  </div>
 </div>

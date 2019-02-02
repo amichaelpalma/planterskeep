@@ -21,7 +21,7 @@
 
     <div class="navbar-nav btn-group">
       <% if user_signed_in? %>
-        <%= link_to current_user.email, user_path(current_user), class: "btn btn-light" %>
+        <%= link_to current_user.username, user_path(current_user), class: "btn btn-light" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, :class => 'btn btn-light'  %>
       <% end %>
